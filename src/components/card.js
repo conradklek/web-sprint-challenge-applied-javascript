@@ -18,19 +18,23 @@ const Card = (article) => {
   // </div>
   //
   const card = document.createElement("div");
+  card.classList.add("card");
   const headline = document.createElement("div");
+  headline.classList.add("headline");
   headline.textContent = article.headline;
+  card.appendChild(headline);
   const author = document.createElement("div");
+  author.classList.add("author");
+  card.appendChild(author);
   const imgContainer = document.createElement("div");
+  imgContainer.classList.add("img-container");
+  author.appendChild(imgContainer);
   const img = document.createElement("img");
   img.src = article.authorPhoto;
   imgContainer.appendChild(img);
   const authorName = document.createElement("span");
   authorName.textContent = article.authorName;
-  author.appendChild(imgContainer);
   author.appendChild(authorName);
-  card.appendChild(headline);
-  card.appendChild(author);
   card.addEventListener("click", () => {
     console.log(article.headline);
   });
@@ -50,8 +54,8 @@ const cardAppender = (selector) => {
   fetch("http://localhost:5000/api/articles")
     .then((response) => response.json())
     .then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        element.appendChild(Card(data[i]));
+      for (let i = 0; i < data.articles.length; i++) {
+        element.appendChild(Card(data.articles[i]));
       }
     });
 };

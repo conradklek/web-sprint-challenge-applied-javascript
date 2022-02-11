@@ -13,17 +13,17 @@ const Header = (title, date, temp) => {
   //
   const header = document.createElement("div");
   header.classList.add("header");
-  const date = document.createElement("span");
-  date.classList.add("date");
-  date.textContent = date;
-  const title = document.createElement("h1");
-  title.textContent = title;
-  const temp = document.createElement("span");
-  temp.classList.add("temp");
-  temp.textContent = temp;
-  header.appendChild(date);
-  header.appendChild(title);
-  header.appendChild(temp);
+  const dateEl = document.createElement("span");
+  dateEl.classList.add("date");
+  dateEl.textContent = date;
+  const titleEl = document.createElement("h1");
+  titleEl.textContent = title;
+  const tempEl = document.createElement("span");
+  tempEl.classList.add("temp");
+  tempEl.textContent = temp;
+  header.appendChild(dateEl);
+  header.appendChild(titleEl);
+  header.appendChild(tempEl);
   return header;
 };
 
